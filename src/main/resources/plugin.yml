@@ -1,0 +1,5 @@
+name: FeatherGolem
+version: ${project.version}
+api-version: 1.15
+main: com.darkender.plugins.feathergolem.FeatherGolem
+author: Techdoodle
