@@ -55,12 +55,13 @@ public class FeatherGolem extends JavaPlugin
         {
             for(IronGolem golem : golems)
             {
-                if(!golem.hasPotionEffect(PotionEffectType.LEVITATION) &&
-                        (golem.hasMetadata("last-floating") &&
-                                (System.nanoTime() - golem.getMetadata("last-floating").get(0).asLong() > (60 * 1000000000))))
+                if(!golem.hasPotionEffect(PotionEffectType.REGENERATION))
                 {
                     golem.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 200, 1));
+                    golem.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 200, 1));
+                    golem.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 5));
                     golem.setMetadata("last-floating", new FixedMetadataValue(this, System.nanoTime()));
+                    golem.setFireTicks(20);
                 }
             }
         }
